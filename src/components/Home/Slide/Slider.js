@@ -4,7 +4,7 @@ const Slider = ({ name, description, pictureLink }) => {
   return(
   <div className="each-slide">
     <div style={{ backgroundImage: `url(${pictureLink})` }}>
-      <span>{name}</span>
+      <p>{name}</p>
     </div>
   </div>
   );
