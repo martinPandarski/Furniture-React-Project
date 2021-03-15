@@ -3,8 +3,6 @@ import { Slide } from 'react-slideshow-image';
 import './Home.css'
 import Slider from './Slide/Slider'
 
-
-
 const Home = ({furniture}) => {
     return (
       <div>

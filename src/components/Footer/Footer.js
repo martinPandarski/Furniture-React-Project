@@ -1,7 +1,7 @@
 import style from "./Footer.module.css";
-
 function Footer() {
   return (
+   
     <div className={style.footerWrapper}>
       <div className={style.footerContent}>
         <div className={style.moreInfo}>
@@ -18,10 +18,10 @@ function Footer() {
               <a href="/about">About Us</a>
             </li>
             <li>
-              <a href="/testimonies">Testimonies</a>
+              <a href="/reviews">Reviews</a>
             </li>
             <li>
-              <a href="/register">Register</a>
+              <a href="/register">Leave a Review</a>
             </li>
           </ul>
         </div>
@@ -29,18 +29,19 @@ function Footer() {
           <p>Find us on Social Media!</p>
           <ul>
             <li>
-              <i class="fab fa-facebook"></i>
+              <i class="fab fa-facebook fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-instagram"></i>
+              <i class="fab fa-instagram fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter fa-2x"></i>
             </li>
           </ul>
         </div>
       </div>
     </div>
+ 
   );
 }
 
