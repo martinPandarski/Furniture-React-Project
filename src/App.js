@@ -7,7 +7,10 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./components/Home/Home";
 import * as furnitureService from './services/furnitureService';
+import * as reviewsService from './services/reviewsService';
+
 import NotFound from "./components/NotFound/NotFound";
+import Reviews from "./components/Reviews/Reviews";
 
 
 class App extends Component {
@@ -15,18 +18,26 @@ class App extends Component {
     super(props);
     this.state = {
       furniture: [],
+      reviews: []
     };
   }
   componentDidMount(){
      furnitureService.getAll()
       .then(furniture => {
-        console.log(furniture)
         this.setState({furniture})
+      })
+      reviewsService.getReviews()
+      .then(reviews => {
+        console.log(reviews)
+        this.setState({reviews})
       })
     
   }
   getFurniture(){
     return this.state.furniture
+  }
+  getReviews(){
+    return this.state.reviews
   }
   render() {
     return (
@@ -34,6 +45,7 @@ class App extends Component {
         <Header />
         
         <Switch>
+        <Route path="/reviews"><Reviews reviews={this.getReviews()}/></Route>
         <Route path="/about">
           <About/>
         </Route>
