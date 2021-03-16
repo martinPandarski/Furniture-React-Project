@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap');
+.header a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
 .header{
     background-color: white;
     display: flex;
-    font-family: 'Shippori Mincho B1', serif;
     border-bottom: 5px solid gray;
 }
 .headerH1{
     margin-left: 21px;
     text-align: center;
+    
+    
 }
 .navP{
     position: absolute;
@@ -15,17 +20,11 @@
 }
 .ulNavigation{
     display: flex;
-    margin: 21px;
+    margin: 0px 0px 25px 153px;
     position: relative;
     
 }
 .navLi{
     list-style-type: none;
     padding: 43px 41px 0px 0px;
-}
-.navLi a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-
 }
