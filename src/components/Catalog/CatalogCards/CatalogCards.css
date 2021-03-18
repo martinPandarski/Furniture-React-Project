@@ -1,7 +1,5 @@
-.catalogCards{
-    display: flex;
-}
 .styles__product-card-description-box___gjZQu .styles__row___2QDFo{
+    display: initial;
     flex-flow: row;
     margin-top: .5rem;
 }

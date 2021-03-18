@@ -1,5 +1,5 @@
 import {ProductCard} from 'react-ui-cards'
-
+import './CatalogCards.css'
 const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
   return(
     <ProductCard
