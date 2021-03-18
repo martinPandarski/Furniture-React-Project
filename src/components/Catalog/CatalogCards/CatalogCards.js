@@ -10,7 +10,8 @@ const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
     productName= {name}
     description= {description}
     buttonText='Add to cart'
-    rating={3}
+    rating={5}
+    url='/google.com'
   />
   );
 };
