@@ -29,13 +29,13 @@ function Footer() {
           <p>Find us on Social Media!</p>
           <ul>
             <li>
-              <i class="fab fa-facebook fa-2x"></i>
+              <i className="fab fa-facebook fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-instagram fa-2x"></i>
+              <i className="fab fa-instagram fa-2x"></i>
             </li>
             <li>
-              <i class="fab fa-twitter fa-2x"></i>
+              <i className="fab fa-twitter fa-2x"></i>
             </li>
           </ul>
         </div>

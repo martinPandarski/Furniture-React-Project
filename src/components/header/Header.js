@@ -9,7 +9,7 @@ function Header() {
       <nav className={style.navigation}>
         <p className={style.navP}>For more information contact us at: something@gmail.com</p>
         <ul className={style.ulNavigation}>
-          <li className={style.navLi}><Link to="/catalogue">CATALOGUE</Link> </li>
+          <li className={style.navLi}><Link to="/catalog">CATALOG</Link> </li>
           <li className={style.navLi}><Link to="/login">LOGIN</Link></li>
           <li className={style.navLi}><Link to="/register">REGISTER</Link></li>
           <li className={style.navLi}><Link to="/logout">LOG OUT</Link></li>
