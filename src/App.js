@@ -47,7 +47,7 @@ class App extends Component {
         <Switch>
         <Route path="/reviews"><Reviews reviews={this.getReviews()}/></Route>
         <Route path="/about"><About/></Route>
-        {/* <Route path="/catalog"><Catalog furniture={this.getFurniture()}/></Route> */}
+        <Route path="/catalog"><Catalog furniture={this.getFurniture()}/></Route>
         <Route path="/" exact><Home furniture={this.getFurniture()}/></Route>
         <Route component={NotFound}/>
         </Switch>
