@@ -11,7 +11,6 @@ const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
     description= {description}
     buttonText='Add to cart'
     rating={3}
-    url='localhost:3000/reviews'
   />
   );
 };
