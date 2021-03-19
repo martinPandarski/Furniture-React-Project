@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 import { Fade } from 'react-slideshow-image';
 import './Home.css'
 import Slider from './Slide/Slider';
@@ -32,6 +32,9 @@ const Home = ({furniture, cards}) => {
             type={y.type}
           />
           )}
+      </div>
+      <div className="gallery-footer">
+          <h4>Click <Link to="/catalog">here</Link> to check out our Catalog!</h4>
       </div>
   </div>
 
