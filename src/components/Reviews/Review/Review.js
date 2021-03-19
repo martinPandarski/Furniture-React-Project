@@ -1,4 +1,3 @@
-import React from "react";
 import './Review.css';
 
 const Review = ({ name, job, reviewText, profilePic }) => {

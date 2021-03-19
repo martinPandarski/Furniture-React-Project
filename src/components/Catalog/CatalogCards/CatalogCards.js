@@ -1,5 +1,5 @@
 
-import {Card, Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import './CatalogCards.css'
 const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
@@ -13,7 +13,7 @@ const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
     </Card.Text>
     <Card.Link><Link to="/details/:id">Details</Link></Card.Link>
     <Card.Link><Link to="/details/:id">Add to Cart</Link></Card.Link>
-    {/* <Button variant="primary">Add to Cart</Button> */}
+    
 
   </Card.Body>
 </Card>

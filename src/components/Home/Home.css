@@ -1,0 +1,32 @@
+.carousel{
+    border-bottom: 2px solid black;
+}
+
+.gallery-heading h1 {
+    margin:  21px 0px 26px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.gallery-heading h1:before,
+.gallery-heading h1:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+.gallery-heading h1:after {
+    margin: 0 0 0 20px;
+}
+
+.gallery {
+    display: flex;
+}
+.card{
+    margin-left: 15px;
+    border: 1px solid lightgrey;
+}

@@ -2,6 +2,7 @@
     display: initial;
     flex-flow: row;
     margin-top: .5rem;
+    line-break: auto;
 }
 .card-img-top{
     width: 100%;

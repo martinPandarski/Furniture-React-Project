@@ -11,6 +11,7 @@ import Home from "./components/Home/Home";
 import Catalog from './components/Catalog/Catalog'
 import * as furnitureService from './services/furnitureService';
 import * as reviewsService from './services/reviewsService';
+import * as cardsService from './services/cardsService'
 
 import NotFound from "./components/NotFound/NotFound";
 import Reviews from "./components/Reviews/Reviews";
@@ -21,7 +22,8 @@ class App extends Component {
     super(props);
     this.state = {
       furniture: [],
-      reviews: []
+      reviews: [],
+      cards: []
     };
   }
   componentDidMount(){
@@ -33,6 +35,10 @@ class App extends Component {
       .then(reviews => {
         this.setState({reviews})
       })
+      cardsService.getHomeCards()
+      .then(cards => {
+        this.setState({cards})
+    })
     
   }
   getFurniture(){
@@ -41,13 +47,16 @@ class App extends Component {
   getReviews(){
     return this.state.reviews
   }
+  getCards(){
+    return this.state.cards
+  }
   render() {
     return (
       <div className="App">
         <Header />
         
         <Switch>
-        <Route path="/" exact><Home furniture={this.getFurniture()}/></Route>
+        <Route path="/" exact><Home furniture={this.getFurniture()} cards={this.getCards()}/></Route>
         <Route path="/reviews"><Reviews reviews={this.getReviews()}/></Route>
         <Route path="/about"><About/></Route>
         <Route path="/catalog"><Catalog furniture={this.getFurniture()}/></Route>

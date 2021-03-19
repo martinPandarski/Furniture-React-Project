@@ -1,12 +1,16 @@
 import React from 'react';
-import { Slide } from 'react-slideshow-image';
-import './Home.css'
-import Slider from './Slide/Slider'
 
-const Home = ({furniture}) => {
+import { Fade } from 'react-slideshow-image';
+import './Home.css'
+import Slider from './Slide/Slider';
+import HomeCards from './HomeCards/HomeCards'
+
+const Home = ({furniture, cards}) => {
+  
     return (
       <div>
-        <Slide easing="ease">
+      <div className="carousel">
+        <Fade duration="3000" >
           {furniture.map(x => 
           <Slider
             key={x.objectId}
@@ -15,9 +19,22 @@ const Home = ({furniture}) => {
             pictureLink={x.pictureLink}
             />
           )}
-        </Slide>
-          
+        </Fade>
       </div>
+            <div className="gallery-heading">
+          <h1>GALLERY</h1>
+            </div>
+      <div className="gallery">
+          {cards.map(y => 
+          <HomeCards
+            key={y.objectId}
+            imageCard={y.imageCard}
+            type={y.type}
+          />
+          )}
+      </div>
+  </div>
+
     )
 };
 
