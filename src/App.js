@@ -8,7 +8,8 @@ import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./components/Home/Home";
-import Catalog from './components/Catalog/Catalog'
+import Catalog from './components/Catalog/Catalog';
+import Register from './components/Register/Register'
 import * as furnitureService from './services/furnitureService';
 import * as reviewsService from './services/reviewsService';
 import * as cardsService from './services/cardsService'
@@ -57,6 +58,7 @@ class App extends Component {
         
         <Switch>
         <Route path="/" exact><Home furniture={this.getFurniture()} cards={this.getCards()}/></Route>
+        <Route path="/register" component={Register}/>
         <Route path="/reviews"><Reviews reviews={this.getReviews()}/></Route>
         <Route path="/about"><About/></Route>
         <Route path="/catalog"><Catalog furniture={this.getFurniture()}/></Route>
