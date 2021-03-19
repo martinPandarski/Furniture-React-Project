@@ -13,7 +13,7 @@ function Header() {
           <li className={style.navLi}><Link to="/login">LOGIN</Link></li>
           <li className={style.navLi}><Link to="/register">REGISTER</Link></li>
           <li className={style.navLi}><Link to="/logout">LOG OUT</Link></li>
-          <li className={style.navLi}><Link to="/logout"><i class="fas fa-shopping-cart">Cart</i></Link></li>
+          <li className={style.navLi}><Link to="/logout"><i className="fas fa-shopping-cart">Cart</i></Link></li>
         </ul>
       </nav>
       </header>
