@@ -1,5 +1,7 @@
 import { Component } from "react";
 import {Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import "./App.css";
 import About from "./components/About/About";
