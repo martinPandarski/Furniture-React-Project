@@ -5,7 +5,7 @@ function Header() {
   return (
     <div>
     <header className={style.header}>
-     <h2 className={style.headerH1}><Link to="/">Furniture Solutions For Your Home!</Link> </h2>
+     <h2 className={style.headerH1}><Link to="/">Not Ikea</Link> </h2>
       <nav className={style.navigation}>
         <p className={style.navP}>For more information contact us at: something@gmail.com</p>
         <ul className={style.ulNavigation}>
@@ -13,6 +13,7 @@ function Header() {
           <li className={style.navLi}><Link to="/login">LOGIN</Link></li>
           <li className={style.navLi}><Link to="/register">REGISTER</Link></li>
           <li className={style.navLi}><Link to="/logout">LOG OUT</Link></li>
+          <li className={style.navLi}><Link to="/logout"><i class="fas fa-shopping-cart">Cart</i></Link></li>
         </ul>
       </nav>
       </header>
