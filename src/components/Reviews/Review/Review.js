@@ -1,10 +1,10 @@
 import React from "react";
 import './Review.css';
 
-const Review = ({ name, job, reviewText }) => {
+const Review = ({ name, job, reviewText, profilePic }) => {
   return(
     <div>
-    <img src="about-page.jpeg" alt="text" />
+    <img src={profilePic} alt="text" />
       <div className="myCarousel">
         <h3>{name}</h3>
         <h4>{job}</h4>

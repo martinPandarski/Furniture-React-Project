@@ -21,6 +21,7 @@ const Reviews = ({reviews}) => {
             reviewText={x.reviewText}
             name={x.name}
             job={x.job}
+            profilePic={x.profilePic}
             />
           )}
           </Carousel>
