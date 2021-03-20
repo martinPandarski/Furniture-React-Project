@@ -1,17 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import { Fade } from 'react-slideshow-image';
 import './Home.css'
 import Slider from './Slide/Slider';
 import HomeCards from './HomeCards/HomeCards'
+import * as cardsService from '../../services/cardsService'
+import * as furnitureService from '../../services/furnitureService';
 
-const Home = ({furniture, cards}) => {
-  
+
+class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+          furniture: [],
+          cards: [],  
+          
+        };
+  }
+  componentDidMount(){
+       furnitureService.getAll()
+        .then(furniture => {
+          this.setState({furniture})
+        }) 
+        cardsService.getHomeCards()
+        .then(cards => {
+          this.setState({cards})
+      })
+    }
+  render(){
     return (
       <div>
       <div className="carousel">
         <Fade duration="3000" >
-          {furniture.map(x => 
+          {this.state.furniture.map(x => 
           <Slider
             key={x.objectId}
             description={x.description}
@@ -25,7 +46,7 @@ const Home = ({furniture, cards}) => {
           <h1>GALLERY</h1>
             </div>
       <div className="gallery">
-          {cards.map(y => 
+          {this.state.cards.map(y => 
           <HomeCards
             key={y.objectId}
             imageCard={y.imageCard}
@@ -37,8 +58,8 @@ const Home = ({furniture, cards}) => {
           <h4>Click <Link to="/catalog">here</Link> to check out our Catalog!</h4>
       </div>
   </div>
-
     )
-};
+  }
+}
 
 export default Home;

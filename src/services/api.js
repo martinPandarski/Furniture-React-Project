@@ -4,5 +4,6 @@ export default{
     furniture: `${baseURL}/data/Furniture`,
     reviews: `${baseURL}/data/Reviews`,
     homeCards: `${baseURL}/data/HomeCards`,
-    register: `${baseURL}/users/register`
+    register: `${baseURL}/users/register`,
+    login: `${baseURL}/users/login`
 }

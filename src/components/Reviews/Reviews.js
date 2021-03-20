@@ -1,10 +1,26 @@
-import React from "react";
+import React, {Component} from "react";
+import * as reviewsService from '../../services/reviewsService';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Review from './Review/Review'
 import './Reviews.css'
 
-const Reviews = ({reviews}) => {
+class Reviews extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      reviews: []
+    }
+    
+  }
+  componentDidMount(){
+    reviewsService.getReviews()
+        .then(reviews => {
+          this.setState({reviews})
+        })
+  }
+
+  render(){
     return (
       <div>
         <Carousel
@@ -15,7 +31,7 @@ const Reviews = ({reviews}) => {
         autoPlay={true}
         interval={6100}
       >
-          {reviews.map(x => 
+          {this.state.reviews.map(x => 
           <Review
             key={x.objectId}
             reviewText={x.reviewText}
@@ -28,7 +44,8 @@ const Reviews = ({reviews}) => {
           
       </div>
     )
+          }
 };
   
 
-export default Reviews
+export default Reviews;

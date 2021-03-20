@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap';
-import api from '../../services/api'
+import api from '../../services/api';
+
 function Register(props){
   const [state, setstate] = useState({
       email: '',
@@ -15,12 +16,12 @@ function Register(props){
   };
   const handleSubmitClick = (e) => {
       e.preventDefault();
-    //   if(state.password === state.confirmPassword){
-    //       sendDetailsToServer()
-    //   }else{
-    //       props.showError('Passwords do not match.')
-    //   }
-    sendDetailsToServer()
+      if(state.password === state.confirmPassword){
+          sendDetailsToServer()
+      }else{
+        //   props.showError('Passwords do not match.')
+      }
+    
   }
   const sendDetailsToServer = () => {
     if(state.email.length && state.password.length) {
@@ -65,6 +66,10 @@ function Register(props){
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" id="password" value={state.password} onChange={handleChange} />
+  </Form.Group>
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Repeat Password</Form.Label>
+    <Form.Control type="password" placeholder="Repeat Password" id="password" value={state.confirmPassword} onChange={handleChange} />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />

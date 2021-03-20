@@ -1,11 +1,25 @@
-
+import React, {Component} from 'react'
 import style from './Catalog.module.css'
 import CatalogCards from './CatalogCards/CatalogCards';
+import * as furnitureService from '../../services/furnitureService';
 
-const Catalog = ({furniture}) => {
+class Catalog extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      furniture: []
+    }
+  }
+componentDidMount(){
+  furnitureService.getAll()
+  .then(furniture => {
+    this.setState({furniture})
+  }) 
+}
+  render(){
     return (
       <div className={style.catalogCardsList}>
-       {furniture.map(item => 
+       {this.state.furniture.map(item => 
           <CatalogCards
             key={item.objectId}
             description={item.description}
@@ -17,6 +31,8 @@ const Catalog = ({furniture}) => {
             
       </div>
     )
+  }
+    
 };
 
 export default Catalog;
