@@ -69,7 +69,7 @@ function Register(props){
   </Form.Group>
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Repeat Password</Form.Label>
-    <Form.Control type="password" placeholder="Repeat Password" id="password" value={state.confirmPassword} onChange={handleChange} />
+    <Form.Control type="password" placeholder="Repeat Password" id="confirmPassword" value={state.confirmPassword} onChange={handleChange} />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
