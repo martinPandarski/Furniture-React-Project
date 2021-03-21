@@ -7,8 +7,10 @@ import { Card, Form, Input, Button, Error } from "../AuthForms/AuthForms";
 function Register(props){
   const [isRegistered, setRegistered] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [notMatchPass, setNotMatchPass] = useState(false)
     const [emailAddress, setEmailAddress] = useState("")
     const [password, setPassword] = useState("");
+    const [rePassword, setRepassword] = useState("");
 
 
   function postRegister(){
@@ -16,7 +18,8 @@ function Register(props){
         "email":emailAddress,
         "password":password,
     }
-    fetch(api.register,{
+    if(password === rePassword){
+      fetch(api.register,{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -35,6 +38,10 @@ function Register(props){
       setIsError(true)
         
     })
+    }else{
+      setNotMatchPass(true)
+    }
+    
 }
 
       if(isRegistered){
@@ -49,7 +56,7 @@ function Register(props){
           onChange={e => {
             setEmailAddress(e.target.value);
           }}
-          placeholder="email"
+          placeholder="Email"
         />
         <Input
           type="password"
@@ -57,11 +64,21 @@ function Register(props){
           onChange={e => {
             setPassword(e.target.value);
           }}
-          placeholder="password"
+          placeholder="Password"
+        />
+        <Input
+          type="password"
+          value={rePassword}
+          onChange={e => {
+            setRepassword(e.target.value);
+          }}
+          placeholder="Repeat password"
         />
         <Button onClick={postRegister}>Sign In</Button>
       </Form>
         { isError &&<Error>The username or password provided were incorrect!</Error> }
+        { notMatchPass &&<Error>Please make sure your passwords match!</Error> }
+
     </Card>
     )
 }
