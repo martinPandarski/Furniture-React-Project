@@ -1,88 +1,68 @@
 import React, {useState} from 'react'
-import {Form, Button} from 'react-bootstrap';
+
 import api from '../../services/api';
 import {Redirect} from 'react-router-dom'
+import { Card, Form, Input, Button, Error } from "../AuthForms/AuthForms";
 
 function Register(props){
-  const [state, setstate] = useState({
-      email: '',
-      password: ''
-  });
-  const handleChange = (e) =>{
-       const {id, value} = e.target
-       setstate(prevState => ({
-           ...prevState,
-           [id] : value
-       }))
-  };
-  const handleSubmitClick = (e) => {
-      e.preventDefault();
-      if(state.password === state.confirmPassword){
-          sendDetailsToServer()
-      }else{
-        //   props.showError('Passwords do not match.')
-      }
-    
-  }
+  const [isRegistered, setRegistered] = useState(false);
+  const [isError, setIsError] = useState(false);
+    const [emailAddress, setEmailAddress] = useState("")
+    const [password, setPassword] = useState("");
 
-  const sendDetailsToServer = () => {
-    if(state.email.length && state.password.length) {
-        // props.showError(null);
-        const payload={
-            "email":state.email,
-            "password":state.password,
-        }
-        fetch(api.register,{
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)   
-        })
-        .then(res => {
-          console.log(res)
-            if(res.status === 200){
-                setstate(prevState => ({
-                    ...prevState
-                }))
-                
-            }
-        })
-        .catch(err => {
-            console.log(err)
-        })
-        
-    } else {
-        props.showError('Please enter valid username and password')    
+
+  function postRegister(){
+    const payload={
+        "email":emailAddress,
+        "password":password,
     }
-    
+    fetch(api.register,{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)   
+    })
+    .then(res => {
+      if(res.status === 200){
+        setRegistered(true);
+      }else{
+        setIsError(true)
+      }
+       
+    })
+    .catch(err => {
+      setIsError(true)
+        
+    })
 }
 
+      if(isRegistered){
+        return  <Redirect to="/login"/>
+    }
     return(
-        <Form>
-    <Form.Group>
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" id="email" value={state.email} onChange={handleChange} />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
-
-  <Form.Group>
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" id="password" value={state.password} onChange={handleChange} />
-  </Form.Group>
-  <Form.Group>
-    <Form.Label>Repeat Password</Form.Label>
-    <Form.Control type="password" placeholder="Repeat Password" id="confirmPassword" value={state.confirmPassword} onChange={handleChange} />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit" onClick={handleSubmitClick}>
-    Submit
-  </Button>
-</Form>
+      <Card>
+      <Form>
+        <Input
+          type="emailAddress"
+          value={emailAddress}
+          onChange={e => {
+            setEmailAddress(e.target.value);
+          }}
+          placeholder="email"
+        />
+        <Input
+          type="password"
+          value={password}
+          onChange={e => {
+            setPassword(e.target.value);
+          }}
+          placeholder="password"
+        />
+        <Button onClick={postRegister}>Sign In</Button>
+      </Form>
+        { isError &&<Error>The username or password provided were incorrect!</Error> }
+    </Card>
     )
 }
 
