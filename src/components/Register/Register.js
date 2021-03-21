@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Form, Button} from 'react-bootstrap';
 import api from '../../services/api';
+import {Redirect} from 'react-router-dom'
 
 function Register(props){
   const [state, setstate] = useState({
@@ -23,6 +24,7 @@ function Register(props){
       }
     
   }
+
   const sendDetailsToServer = () => {
     if(state.email.length && state.password.length) {
         // props.showError(null);
@@ -38,10 +40,12 @@ function Register(props){
             body: JSON.stringify(payload)   
         })
         .then(res => {
+          console.log(res)
             if(res.status === 200){
                 setstate(prevState => ({
                     ...prevState
                 }))
+                
             }
         })
         .catch(err => {
@@ -53,9 +57,10 @@ function Register(props){
     }
     
 }
+
     return(
         <Form>
-    <Form.Group controlId="formBasicEmail">
+    <Form.Group>
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" id="email" value={state.email} onChange={handleChange} />
     <Form.Text className="text-muted">
@@ -63,11 +68,11 @@ function Register(props){
     </Form.Text>
   </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
+  <Form.Group>
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" id="password" value={state.password} onChange={handleChange} />
   </Form.Group>
-  <Form.Group controlId="formBasicPassword">
+  <Form.Group>
     <Form.Label>Repeat Password</Form.Label>
     <Form.Control type="password" placeholder="Repeat Password" id="confirmPassword" value={state.confirmPassword} onChange={handleChange} />
   </Form.Group>
