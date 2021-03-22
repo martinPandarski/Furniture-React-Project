@@ -20,17 +20,18 @@ import Login from "./components/Login/Login";
 function App(props) {
   const existingTokens = JSON.parse(localStorage.getItem("tokens"));
   const [authTokens, setAuthTokens] = useState(existingTokens);
-
+  let loggedIn
   const setTokens = (data) => {
     localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data)
-    console.log(data)
+   loggedIn = true
+    
   } 
     return (
       <div className="App">
       <Router>
-        <Header />
         <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+        <Header />
         <Switch>
         
         <Route path="/" exact component={Home}/>

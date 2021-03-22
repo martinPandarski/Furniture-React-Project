@@ -11,8 +11,8 @@ const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
     <Card.Text>
      {description}
     </Card.Text>
-    <Card.Link><Link to="/details/:id">Details</Link></Card.Link>
-    <Card.Link><Link to="/details/:id">Add to Cart</Link></Card.Link>
+   <Link to="/details/:id">Details</Link>
+   <Link to="/details/:id">Add to Cart</Link>
     
 
   </Card.Body>
