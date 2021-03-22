@@ -5,5 +5,6 @@ export default{
     reviews: `${baseURL}/data/Reviews`,
     homeCards: `${baseURL}/data/HomeCards`,
     register: `${baseURL}/users/register`,
-    login: `${baseURL}/users/login`
+    login: `${baseURL}/users/login`,
+    logout: `${baseURL}/users/logout`
 }

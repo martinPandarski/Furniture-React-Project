@@ -43,7 +43,6 @@ function Register(props){
     }
     
 }
-
       if(isRegistered){
         return  <Redirect to="/login"/>
     }

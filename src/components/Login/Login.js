@@ -25,15 +25,15 @@ function Login(props){
         })
         .then(res => res.json())
         .then(res => {
-                
                 setAuthTokens(res["user-token"]);
                 setLoggedIn(true);
-           
+                
         })
         .catch(err => {
             setIsError(true);
         })
     }
+    
     if (isLoggedIn) {
         return <Redirect to="/" />;
       }
