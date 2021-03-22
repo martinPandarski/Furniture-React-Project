@@ -41,6 +41,7 @@ function Login(props){
 
     return(
         <Card>
+        <h2>Login</h2>
       <Form>
         <Input
           type="emailAddress"

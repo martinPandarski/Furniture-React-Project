@@ -49,6 +49,7 @@ function Register(props){
     }
     return(
       <Card>
+      <h2>Register</h2>
       <Form>
         <Input
           type="emailAddress"

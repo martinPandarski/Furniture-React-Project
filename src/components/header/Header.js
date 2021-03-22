@@ -14,7 +14,6 @@ function Header(props) {
           <li className={style.navLi}><Link to="/catalog">CATALOG</Link></li>
           <li className={style.navLi}>{isLogged ? <Link to="/logout">LOG OUT</Link> :<Link to="/login">LOGIN</Link> }</li>
           <li className={style.navLi}>{isLogged ? <Link to="/logout"><i className="fas fa-shopping-cart">Cart</i></Link> :<Link to="/register">REGISTER</Link> }</li>
-          
         </ul>
       </nav>
       </header>
