@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import api from "../../services/api";
 
 
-function Header() {
+function Header({history}) {
     const isLogged = localStorage.getItem("tokens")
     // const [isLoggedOut, setLoggedOut] = useState(false);
 
@@ -18,7 +18,7 @@ function Header() {
    .then(res => {
     if(res.status === 200){
       localStorage.removeItem("tokens"); 
-      window.location.href = "/login"
+      history.push('/')
     }
   })
   .catch(err => console.log(err))

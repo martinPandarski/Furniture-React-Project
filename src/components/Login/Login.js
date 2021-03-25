@@ -4,8 +4,9 @@ import { Card, Form, Input, Button, Error } from "../AuthForms/AuthForms";
 import api from '../../services/api';
 import {useAuth} from '../../context/auth'
 
-function Login(props){
-    const [isLoggedIn, setLoggedIn] = useState(false);
+const Login =({
+  history
+}) => {
     const [isError, setIsError] = useState(false);
     const [emailAddress, setEmailAddress] = useState("")
     const [password, setPassword] = useState("");
@@ -26,7 +27,7 @@ function Login(props){
         .then(res => res.json())
         .then(res => {
                 setAuthTokens(res["user-token"]);
-                setLoggedIn(true);
+                history.push('/')
                 
         })
         .catch(err => {
@@ -34,10 +35,7 @@ function Login(props){
         })
     }
     
-    if (isLoggedIn) {
-        return <Redirect to="/" />;
-      }
-
+  
 
     return(
         <Card>
