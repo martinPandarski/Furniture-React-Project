@@ -18,11 +18,11 @@ import PostReview from "./components/Reviews/postReview/postReview";
 
 
 function App(props) {
-  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+  const existingTokens = localStorage.getItem("tokens");
   const [authTokens, setAuthTokens] = useState(existingTokens);
 
   const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
+    localStorage.setItem("tokens", data);
     setAuthTokens(data)
   } 
     

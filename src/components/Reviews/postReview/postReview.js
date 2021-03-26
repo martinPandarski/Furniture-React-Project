@@ -2,7 +2,7 @@ import { Card, Form, Input, Button, Error } from "../../AuthForms/AuthForms";
 import {useState} from 'react'
 import api from '../../../services/api'
 
-const PostReview = () => {
+const PostReview = ({history}) => {
     const [isError, setIsError] = useState(false);
       const [personName, setPersonName] = useState("")
       const [job, setJob] = useState("");
@@ -20,11 +20,11 @@ const PostReview = () => {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
-                'user-token' : `${userToken}`
+                'user-token' : userToken
             },
             body: JSON.stringify(payload)   
         })
-        .then(res => res.json())
+        .then(res => history.push('/reviews'))
         .catch(err => {
           setIsError(true)
             

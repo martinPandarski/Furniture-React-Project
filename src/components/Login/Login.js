@@ -26,6 +26,7 @@ const Login =({
         })
         .then(res => res.json())
         .then(res => {
+          console.log(res["user-token"])
                 setAuthTokens(res["user-token"]);
                 history.push('/')
                 
