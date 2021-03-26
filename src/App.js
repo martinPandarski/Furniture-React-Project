@@ -14,6 +14,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Reviews from "./components/Reviews/Reviews";
 import Login from "./components/Login/Login";
 import {AuthContext} from './context/auth';
+import PostReview from "./components/Reviews/postReview/postReview";
 
 
 function App(props) {
@@ -36,7 +37,8 @@ function App(props) {
         <Route path="/" exact component={Home}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
-        <Route path="/reviews" component={Reviews}></Route>
+        <Route path="/reviews" exact component={Reviews}></Route>
+        <Route path="/reviews/new" component={PostReview}></Route>
         <Route path="/about" component={About}></Route>
         <Route path="/catalog" component={Catalog}></Route>
         <PrivateRoute path="/admin" component={Admin}></PrivateRoute>

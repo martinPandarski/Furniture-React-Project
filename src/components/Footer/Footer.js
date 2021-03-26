@@ -21,7 +21,7 @@ function Footer() {
               <a href="/reviews">Reviews</a>
             </li>
             <li>
-              <a href="/register">Leave a Review</a>
+              <a href="/reviews/new">Leave a Review</a>
             </li>
           </ul>
         </div>
