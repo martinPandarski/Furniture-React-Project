@@ -1,9 +1,8 @@
 import './Review.css';
 
-const Review = ({ name, job, reviewText, profilePic }) => {
+const Review = ({ name, job, reviewText }) => {
   return(
     <div>
-    <img src={profilePic} alt="text" />
       <div className="myCarousel">
         <h3>{name}</h3>
         <h4>{job}</h4>

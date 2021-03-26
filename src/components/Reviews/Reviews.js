@@ -37,7 +37,6 @@ class Reviews extends Component {
             reviewText={x.reviewText}
             name={x.name}
             job={x.job}
-            profilePic={x.profilePic}
             />
           )}
           </Carousel>

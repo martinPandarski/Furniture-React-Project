@@ -1,21 +1,59 @@
-import React from "react";
-import {Redirect} from 'react-router-dom'
+import React, { Component} from "react";
+import {Redirect, Link} from 'react-router-dom'
 import { useAuth } from "../../context/auth";
+import Table from 'react-bootstrap/Table'
+import api from "../../services/api";
+import UserInfo from "./UserInfo/UserInfo";
 
-function Admin(props) {
-  const { setAuthTokens } = useAuth();
+class Admin extends Component {
+    constructor(props){
+      super(props)
+      this.state = {
+        users : []
+      }
+    }
+  
+    componentDidMount(){
+      fetch(api.users)
+      .then(res => res.json())
+      .then(users => this.setState({users}) )
+    }
+    
+ 
+   
+  
+    render(){
 
-  function logOut() {
-    return localStorage.clear()
-     
-  }
+      return (
+        <div>
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>#</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        {this.state.users.map(user => 
+          <UserInfo
+          key={user.ownerId}
+          objectId={user.objectId}
+          email={user.email}
+          username={user.username}
+       
+          />
+        )}
+      </tbody>
+    </Table>
 
-  return (
     <div>
-      <div>Admin Page</div>
-      <button onClick={logOut}>Log out</button>
+      <h3> <Link to="/admin/create">Add new items to the catalog</Link></h3>
     </div>
-  );
+    </div>
+      );
+    }
 }
 
 export default Admin;

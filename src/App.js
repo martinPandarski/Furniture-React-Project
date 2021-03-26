@@ -15,6 +15,7 @@ import Reviews from "./components/Reviews/Reviews";
 import Login from "./components/Login/Login";
 import {AuthContext} from './context/auth';
 import PostReview from "./components/Reviews/postReview/postReview";
+import Details from "./components/Details/Details";
 
 
 function App(props) {
@@ -38,9 +39,10 @@ function App(props) {
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/reviews" exact component={Reviews}></Route>
-        <Route path="/reviews/new" component={PostReview}></Route>
+        <PrivateRoute path="/reviews/new" component={PostReview}></PrivateRoute>
         <Route path="/about" component={About}></Route>
         <Route path="/catalog" component={Catalog}></Route>
+        <Route path="/details/:objectId" component={Details}></Route>
         <PrivateRoute path="/admin" component={Admin}></PrivateRoute>
         <Route component={NotFound}/>
       

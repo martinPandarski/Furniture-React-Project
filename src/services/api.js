@@ -6,5 +6,6 @@ export default{
     homeCards: `${baseURL}/data/HomeCards`,
     register: `${baseURL}/users/register`,
     login: `${baseURL}/users/login`,
-    logout: `${baseURL}/users/logout`
+    logout: `${baseURL}/users/logout`,
+    users: `${baseURL}/data/Users`
 }
