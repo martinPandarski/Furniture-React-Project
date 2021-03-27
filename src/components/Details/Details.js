@@ -19,12 +19,13 @@ function Details({
                     </div>
                     <div className="card-right">
                         <h5 className="item-title">{furniture.name}</h5>  
-                        <p className="item-price"><b>${furniture.pricePerOne}.00</b></p>
+                        <p className="item-price"><b>${furniture.pricePerOne}</b></p>
                         <p className="item-desc">{furniture.description}</p>
                         <button className="btn-add"><b>ADD TO CART</b></button>
                     </div>
                 </div>
   );
 }
+
 
 export default Details;

@@ -4,9 +4,9 @@
 .card-image{
     float: left;
     height: 600px;
-    width: 400px;
+    width: 100%;
     margin-top: 5px;
-    margin-left: 100px;
+    margin-right: 15px;
     margin-bottom: 5px;
 }
 .card-right{

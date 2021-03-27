@@ -23,7 +23,7 @@ componentDidMount(){
           <CatalogCards
             key={item.objectId}
             itemId={item.objectId}
-            description={item.description}
+            introText={item.introText}
             name={item.name}
             pictureLink={item.pictureLink}
             pricePerOne={item.pricePerOne}
