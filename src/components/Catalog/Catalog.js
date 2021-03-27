@@ -22,6 +22,7 @@ componentDidMount(){
        {this.state.furniture.map(item => 
           <CatalogCards
             key={item.objectId}
+            itemId={item.objectId}
             description={item.description}
             name={item.name}
             pictureLink={item.pictureLink}

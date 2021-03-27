@@ -55,7 +55,7 @@ const PostReview = ({history}) => {
             placeholder="Enter your occupation"
           />
           <Input
-            type="text"
+            type="textarea"
             value={reviewText}
             onChange={e => {
               setReviewText(e.target.value);

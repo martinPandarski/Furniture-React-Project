@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+}
+.card-image{
+    float: left;
+    height: 600px;
+    width: 400px;
+    margin-top: 5px;
+    margin-left: 100px;
+    margin-bottom: 5px;
+}
+.card-right{
+    float: right;
+    margin-top: 5px;
+    height: 600px;
+    width: 400px;
+    margin-right: 100px;
+}
+.card-image .card-right{
+    display: inline;
+}
+
+.item-price{
+    font-size: small;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+}
+.item-desc{
+    color: #888888;
+}
+.btn-add{
+    background: white;
+    width: 150px;
+    height: 30px;
+    border: 1px solid #CCCCCC;
+    margin-top: 30px;
+}
+.btn-add:focus, .btn-add:hover{
+    background: black;
+    color: white;
+    outline: 0;
+}

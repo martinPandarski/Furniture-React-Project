@@ -2,7 +2,7 @@
 import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import './CatalogCards.css'
-const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
+const CatalogCards = ({ itemId, name, description, pictureLink }) => {
   return(
     <Card style={{ width: '20rem' }}>
   <Card.Img variant="top" src={pictureLink} />
@@ -11,8 +11,8 @@ const CatalogCards = ({ name, description, pictureLink, pricePerOne }) => {
     <Card.Text>
      {description}
     </Card.Text>
-   <Link to="/details/:id">Details</Link>
-   <Link to="/details/:id">Add to Cart</Link>
+   <Link to={`/details/${itemId}`}>Details</Link>
+   <Link to={`/details/${itemId}`}>Add to Cart</Link>
     
 
   </Card.Body>

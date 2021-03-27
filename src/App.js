@@ -42,7 +42,7 @@ function App(props) {
         <PrivateRoute path="/reviews/new" component={PostReview}></PrivateRoute>
         <Route path="/about" component={About}></Route>
         <Route path="/catalog" component={Catalog}></Route>
-        <Route path="/details/:objectId" component={Details}></Route>
+        <Route path="/details/:id" component={Details}></Route>
         <PrivateRoute path="/admin" component={Admin}></PrivateRoute>
         <Route component={NotFound}/>
       
