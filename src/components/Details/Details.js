@@ -8,10 +8,9 @@ function Details({
     let [furniture, setFurniture] = useState({});
 
     useEffect(() => {
-      console.log(match.params)
       furnitureService.getOne(match.params.id)
           .then(res => setFurniture(res))
-    }, [])
+    })
   return (
     <div className="container">
                     <div className="card-image">

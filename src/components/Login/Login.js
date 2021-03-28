@@ -1,69 +1,52 @@
-import React, {useState} from 'react'
-import {Link, Redirect} from 'react-router-dom'
+import React, {useRef, useState} from 'react'
+import {Link, useHistory} from 'react-router-dom'
 import { Card, Form, Input, Button, Error } from "../AuthForms/AuthForms";
-import api from '../../services/api';
-import {useAuth} from '../../context/auth'
+import {useAuth} from '../../context/auth';
 
-const Login =({
-  history
-}) => {
-    const [isError, setIsError] = useState(false);
-    const [emailAddress, setEmailAddress] = useState("")
-    const [password, setPassword] = useState("");
-    const {setAuthTokens } = useAuth();
-   
-    function postLogin(){
-        const payload={
-            "login":emailAddress,
-            "password":password,
-        }
-        fetch(api.login,{
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)   
-        })
-        .then(res => res.json())
-        .then(res => {
-          console.log(res["user-token"])
-                setAuthTokens(res["user-token"]);
-                history.push('/')
-                
-        })
-        .catch(err => {
-            setIsError(true);
-        })
+
+const Login = () => {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const { login } = useAuth()
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    try {
+      setError("")
+      setLoading(true)
+      await login(emailRef.current.value, passwordRef.current.value)
+      history.push("/")
+    } catch {
+      setError("Failed to log in")
     }
-    
-  
 
+    setLoading(false)
+  }
+   
     return(
         <Card>
         <h2>Login</h2>
       <Form>
         <Input
           type="emailAddress"
-          value={emailAddress}
-          onChange={e => {
-            setEmailAddress(e.target.value);
-          }}
+          ref={emailRef}
           placeholder="email"
         />
         <Input
           type="password"
-          value={password}
-          onChange={e => {
-            setPassword(e.target.value);
-          }}
+          ref={passwordRef}
           placeholder="password"
         />
-        <Button onClick={postLogin}>Sign In</Button>
+        <Button disabled={loading} onClick={handleSubmit}>Sign In</Button>
       </Form>
       <Link to="/register">Don't have an account?</Link>
-        { isError &&<Error>The username or password provided were incorrect!</Error> }
+        { error &&<Error>The username or password provided were incorrect!</Error> }
     </Card>
     )
 }
 
-export default Login
+export default Login;

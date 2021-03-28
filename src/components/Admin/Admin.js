@@ -1,6 +1,6 @@
 import React, { Component} from "react";
-import {Redirect, Link} from 'react-router-dom'
-import { useAuth } from "../../context/auth";
+import {Link} from 'react-router-dom'
+
 import Table from 'react-bootstrap/Table'
 import api from "../../services/api";
 import UserInfo from "./UserInfo/UserInfo";

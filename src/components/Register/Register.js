@@ -1,50 +1,36 @@
-import React, {useState} from 'react'
-
-import api from '../../services/api';
-import {Redirect} from 'react-router-dom'
+import React, {useRef, useState} from 'react'
+import {Link, useHistory} from 'react-router-dom'
 import { Card, Form, Input, Button, Error } from "../AuthForms/AuthForms";
+import {useAuth} from '../../context/auth'
 
 function Register(props){
-  const [isRegistered, setRegistered] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [notMatchPass, setNotMatchPass] = useState(false)
-    const [emailAddress, setEmailAddress] = useState("")
-    const [password, setPassword] = useState("");
-    const [rePassword, setRepassword] = useState("");
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const passwordConfirmRef = useRef()
+  const { signup } = useAuth()
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  const history = useHistory()
 
 
-  function postRegister(){
-    const payload={
-        "email":emailAddress,
-        "password":password,
-    }
-    if(password === rePassword){
-      fetch(api.register,{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)   
-    })
-    .then(res => {
-      if(res.status === 200){
-        setRegistered(true);
-      }else{
-        setIsError(true)
+  
+    async function handleSubmit(e) {
+      e.preventDefault()
+  
+      if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+        return setError("Passwords do not match")
       }
-       
-    })
-    .catch(err => {
-      setIsError(true)
-        
-    })
-    }else{
-      setNotMatchPass(true)
-    }
-    
-}
-      if(isRegistered){
-        return  <Redirect to="/login"/>
+  
+      try {
+        setError("")
+        setLoading(true)
+        await signup(emailRef.current.value, passwordRef.current.value)
+        history.push("/")
+      } catch {
+        setError("Failed to create an account")
+      }
+  
+      setLoading(false)
     }
     return(
       <Card>
@@ -52,32 +38,23 @@ function Register(props){
       <Form>
         <Input
           type="emailAddress"
-          value={emailAddress}
-          onChange={e => {
-            setEmailAddress(e.target.value);
-          }}
+          ref={emailRef}
           placeholder="Email"
         />
         <Input
           type="password"
-          value={password}
-          onChange={e => {
-            setPassword(e.target.value);
-          }}
+          ref={passwordRef}
           placeholder="Password"
         />
         <Input
           type="password"
-          value={rePassword}
-          onChange={e => {
-            setRepassword(e.target.value);
-          }}
+          ref={passwordConfirmRef}
           placeholder="Repeat password"
         />
-        <Button onClick={postRegister}>Sign In</Button>
+        <Button disabled={loading} onClick={handleSubmit}>Sign In</Button>
       </Form>
-        { isError &&<Error>The username or password provided were incorrect!</Error> }
-        { notMatchPass &&<Error>Please make sure your passwords match!</Error> }
+        { error &&<Error>{error}</Error> }
+        
 
     </Card>
     )
