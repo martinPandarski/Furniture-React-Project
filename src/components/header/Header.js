@@ -31,7 +31,7 @@ function Header() {
         <p className={style.navP}>For more information contact us at: something@gmail.com</p>
         <ul className={style.ulNavigation}>
           <li className={style.navLi}><Link to="/catalog">CATALOG</Link></li>
-          <li className={style.navLi}>{currentUser ? <Link onClick={handleLogout}>LOG OUT</Link> : <Link to="/login">LOGIN</Link> }</li>
+          <li className={style.navLi}>{currentUser ? <Link onClick={handleLogout} to="/">LOG OUT</Link> : <Link to="/login">LOGIN</Link> }</li>
           <li className={style.navLi}>{currentUser ? <Link to="/logout"><i className="fas fa-shopping-cart">Cart</i></Link> : <Link to="/register">REGISTER</Link> }</li>
         </ul>
       </nav>
