@@ -20,10 +20,12 @@ class Home extends Component {
   componentDidMount(){
        furnitureService.getAll()
         .then(furniture => {
+            
           this.setState({furniture})
         }) 
         cardsService.getHomeCards()
         .then(cards => {
+          
           this.setState({cards})
       })
     }
@@ -32,12 +34,12 @@ class Home extends Component {
       <div>
       <div className="carousel">
         <Fade duration="3000" >
-          {this.state.furniture.map(x => 
+          {Object.keys(this.state.furniture).map(id => 
           <Slider
-            key={x.objectId}
-            description={x.description}
-            name={x.name}
-            pictureLink={x.pictureLink}
+            key={id}
+            description={this.state.furniture[id].description}
+            name={this.state.furniture[id].name}
+            pictureLink={this.state.furniture[id].pictureLink}
             />
           )}
         </Fade>
@@ -46,11 +48,11 @@ class Home extends Component {
           <h1>GALLERY</h1>
             </div>
       <div className="gallery">
-          {this.state.cards.map(y => 
+          {Object.keys(this.state.cards).map(id => 
           <HomeCards
-            key={y.objectId}
-            imageCard={y.imageCard}
-            type={y.type}
+            key={id}
+            imageCard={this.state.cards[id].imageCard}
+            type={this.state.cards[id].type}
           />
           )}
       </div>

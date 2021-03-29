@@ -19,14 +19,14 @@ componentDidMount(){
   render(){
     return (
       <div className={style.catalogCardsList}>
-       {this.state.furniture.map(item => 
+       {Object.keys(this.state.furniture).map(id => 
           <CatalogCards
-            key={item.objectId}
-            itemId={item.objectId}
-            introText={item.introText}
-            name={item.name}
-            pictureLink={item.pictureLink}
-            pricePerOne={item.pricePerOne}
+            key={id}
+            itemId={id}
+            introText={this.state.furniture[id].introText}
+            name={this.state.furniture[id].name}
+            pictureLink={this.state.furniture[id].pictureLink}
+            pricePerOne={this.state.furniture[id].pricePerOne}
             />
        )}
             

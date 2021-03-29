@@ -1,7 +1,7 @@
 import api from './api';
 
 export const getReviews = () => {
-    return fetch(api.reviews)
+    return fetch(api.reviews + '.json')
         .then(res => res.json())
         .catch(err => console.log('Handled error:' + err));
 };

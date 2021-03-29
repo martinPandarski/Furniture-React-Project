@@ -31,12 +31,13 @@ class Reviews extends Component {
         autoPlay={true}
         interval={6100}
       >
-          {this.state.reviews.map(x => 
+         
+          {Object.keys(this.state.reviews).map(id =>
           <Review
-            key={x.objectId}
-            reviewText={x.reviewText}
-            name={x.name}
-            job={x.job}
+            key={id}
+            reviewText={this.state.reviews[id].reviewText}
+            name={this.state.reviews[id].name}
+            job={this.state.reviews[id].job}
             />
           )}
           </Carousel>
