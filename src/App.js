@@ -16,6 +16,8 @@ import Login from "./components/Login/Login";
 import {AuthProvider} from './context/auth';
 import PostReview from "./components/Reviews/postReview/postReview";
 import Details from "./components/Details/Details";
+import Cart from "./components/Cart/Cart";
+import { CartProvider } from "./context/CartContext";
 
 
 function App() {
@@ -32,9 +34,10 @@ function App() {
       <div className="App">
       <Router>
         <AuthProvider>
+        <CartProvider>
         <Header/>
         <Switch>
-
+        <Route path="/cart" component={Cart}/>
         <Route path="/" exact component={Home}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
@@ -48,6 +51,7 @@ function App() {
       
       </Switch>
         <Footer />
+      </CartProvider>
       </AuthProvider>
         </Router>
       </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import style from "./Header.module.css";
 import {Link, useHistory} from 'react-router-dom'
 import {useAuth} from '../../context/auth'
-import { Alert } from 'react-bootstrap';
+
 
 
 function Header() {
@@ -32,7 +32,7 @@ function Header() {
         <ul className={style.ulNavigation}>
           <li className={style.navLi}><Link to="/catalog">CATALOG</Link></li>
           <li className={style.navLi}>{currentUser ? <Link onClick={handleLogout} to="/">LOG OUT</Link> : <Link to="/login">LOGIN</Link> }</li>
-          <li className={style.navLi}>{currentUser ? <Link to="/logout"><i className="fas fa-shopping-cart">Cart</i></Link> : <Link to="/register">REGISTER</Link> }</li>
+          <li className={style.navLi}>{currentUser ? <Link to="/cart"><i className="fas fa-shopping-cart">Cart</i></Link> : <Link to="/register">REGISTER</Link> }</li>
         </ul>
       </nav>
       </header>

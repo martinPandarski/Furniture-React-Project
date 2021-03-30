@@ -1,9 +1,10 @@
 import React, {useRef, useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom';
+
 import { Card, Form, Input, Button, Error } from "../AuthForms/AuthForms";
 import {useAuth} from '../../context/auth'
 
-function Register(props){
+function Register(){
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
@@ -12,8 +13,6 @@ function Register(props){
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
-
-  
     async function handleSubmit(e) {
       e.preventDefault()
   
@@ -51,6 +50,7 @@ function Register(props){
           ref={passwordConfirmRef}
           placeholder="Repeat password"
         />
+        
         <Button disabled={loading} onClick={handleSubmit}>Sign In</Button>
       </Form>
         { error &&<Error>{error}</Error> }
