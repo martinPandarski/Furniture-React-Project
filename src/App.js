@@ -37,7 +37,7 @@ function App() {
         <CartProvider>
         <Header/>
         <Switch>
-        <Route path="/cart" component={Cart}/>
+        <PrivateRoute path="/cart" component={Cart}/>
         <Route path="/" exact component={Home}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
