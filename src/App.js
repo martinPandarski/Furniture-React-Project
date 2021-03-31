@@ -18,6 +18,7 @@ import PostReview from "./components/Reviews/postReview/postReview";
 import Details from "./components/Details/Details";
 import Cart from "./components/Cart/Cart";
 import { CartProvider } from "./context/CartContext";
+import CreateItems from "./components/Admin/CreateItems/CreateItems";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/reviews" exact component={Reviews}></Route>
+        <PrivateRoute exact path="/admin/create" component={CreateItems}></PrivateRoute>
         <PrivateRoute path="/admin" component={Admin}></PrivateRoute>
         <PrivateRoute path="/reviews/new" component={PostReview}></PrivateRoute>
         <Route path="/about" component={About}></Route>

@@ -3,20 +3,20 @@ import {Link} from 'react-router-dom'
 
 import Table from 'react-bootstrap/Table'
 import api from "../../services/api";
-import UserInfo from "./UserInfo/UserInfo";
+import OrderInfo from "./OrderInfo/OrderInfo";
 
 class Admin extends Component {
     constructor(props){
       super(props)
       this.state = {
-        users : []
+        orders : []
       }
     }
   
     componentDidMount(){
-      fetch(api.users)
+      fetch(api.orders)
       .then(res => res.json())
-      .then(users => this.setState({users}) )
+      .then(orders => this.setState({orders}) )
     }
     
  
@@ -29,19 +29,19 @@ class Admin extends Component {
         <Table striped bordered hover>
       <thead>
         <tr>
-          <th>Username</th>
           <th>Email</th>
-          <th>#</th>
+          <th>Order</th>
+          <th>Price</th>
          
         </tr>
       </thead>
       <tbody>
-        {this.state.users.map(user => 
-          <UserInfo
-          key={user.ownerId}
-          objectId={user.objectId}
-          email={user.email}
-          username={user.username}
+        {Object.keys(this.state.orders).map(id => 
+          <OrderInfo
+          key={id}
+          email={this.state.orders[id].name}
+          order={this.state.orders[id].orderCart[0].name}
+          price={this.state.orders[id].orderCart[0].price}
        
           />
         )}
