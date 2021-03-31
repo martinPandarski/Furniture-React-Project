@@ -21,15 +21,6 @@ import { CartProvider } from "./context/CartContext";
 
 
 function App() {
-  // const existingTokens = localStorage.getItem("tokens");
-  // const [authTokens, setAuthTokens] = useState(existingTokens);
-
-  // const setTokens = (data) => {
-  //   localStorage.setItem("tokens", data);
-  //   setAuthTokens(data)
-  // } 
-    
-
     return (
       <div className="App">
       <Router>
