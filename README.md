@@ -9,6 +9,7 @@ The app is deployed with Heroku at : https://notikea.herokuapp.com/
 - **Reviews and leave a review functionality**
 - **The App features admin functionality. An admin can check on all the orders and can add new products.**
 - **The Admin panel is only visible to one user only.**
+- **Mixture of styled components - login/register pages, styling with css and css modules, and React-Bootstrap.**
 
 ## Set Up
 You can set up the project locally by first installing all the node modules with `npm install`.
