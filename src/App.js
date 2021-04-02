@@ -20,6 +20,8 @@ import Cart from "./components/Cart/Cart";
 import { CartProvider } from "./context/CartContext";
 import CreateItems from "./components/Admin/CreateItems/CreateItems";
 import AdminRoute from "./adminRoute";
+import Profile from "./components/Profile/Profile";
+import EditProfile from "./components/Profile/EditProfile/EditProfile";
 
 
 function App() {
@@ -35,6 +37,9 @@ function App() {
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/reviews" exact component={Reviews}></Route>
+        <PrivateRoute path="/user/profile" exact component={Profile}></PrivateRoute>
+        <PrivateRoute path="/user/orders" exact component={Profile}></PrivateRoute>
+        <PrivateRoute path="/user/edit-profile" exact component={EditProfile}></PrivateRoute>
         <AdminRoute exact path="/admin/create" component={CreateItems}></AdminRoute>
         <AdminRoute path="/admin" component={Admin}></AdminRoute>
         <PrivateRoute path="/reviews/new" component={PostReview}></PrivateRoute>

@@ -1,19 +1,21 @@
 import { Card, Form, Input, Button, Error } from "../../AuthForms/AuthForms";
 import {useState} from 'react'
-import api from '../../../services/api'
+import api from '../../../services/api';
+import {useAuth} from '../../../context/auth'
 
 const PostReview = ({history}) => {
     const [isError, setIsError] = useState(false);
       const [personName, setPersonName] = useState("")
       const [job, setJob] = useState("");
       const [reviewText, setReviewText] = useState("");
-
+      const {currentUser} = useAuth()
       function postReviews(){
         const userToken = localStorage.getItem("tokens")
         const payload={
             "name":personName,
             "job":job,
-            "reviewText": reviewText 
+            "reviewText": reviewText,
+            "profilePicture" : currentUser.photoURL 
         }
         
           fetch(api.reviews,{

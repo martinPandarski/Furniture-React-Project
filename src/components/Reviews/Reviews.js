@@ -16,6 +16,7 @@ class Reviews extends Component {
   componentDidMount(){
     reviewsService.getReviews()
         .then(reviews => {
+          console.log(reviews)
           this.setState({reviews})
         })
   }
@@ -35,6 +36,7 @@ class Reviews extends Component {
           {Object.keys(this.state.reviews).map(id =>
           <Review
             key={id}
+            profilePicture={this.state.reviews[id].profilePicture}
             reviewText={this.state.reviews[id].reviewText}
             name={this.state.reviews[id].name}
             job={this.state.reviews[id].job}

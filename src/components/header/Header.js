@@ -9,7 +9,7 @@ function Header() {
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const history = useHistory()
-
+  console.log(currentUser)
   async function handleLogout() {
     setError("")
     try {
@@ -33,6 +33,7 @@ function Header() {
           <li className={style.navLi}><Link to="/catalog">CATALOG</Link></li>
           <li className={style.navLi}>{currentUser ? <Link onClick={handleLogout} to="/">LOG OUT</Link> : <Link to="/login">LOGIN</Link> }</li>
           <li className={style.navLi}>{currentUser ? <Link to="/cart"><i className="fas fa-shopping-cart">Cart</i></Link> : <Link to="/register">REGISTER</Link> }</li>
+          <li className={style.navLi}>{currentUser ? <Link to="/user/profile"><i className="fas fa-user">Profile</i></Link> :'' }</li>
         </ul>
       </nav>
       </header>

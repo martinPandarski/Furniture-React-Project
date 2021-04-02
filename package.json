@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "firebase": "^8.3.1",
+    "formik": "^2.2.6",
     "mdbreact": "^5.0.1",
     "react": "^17.0.1",
     "react-awesome-button": "^6.5.1",
@@ -22,7 +23,8 @@
     "react-slideshow-image": "^3.4.3",
     "react-ui-cards": "^2.0.0",
     "styled-components": "^5.2.1",
-    "web-vitals": "^1.1.1"
+    "web-vitals": "^1.1.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
