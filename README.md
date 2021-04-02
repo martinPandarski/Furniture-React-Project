@@ -7,6 +7,8 @@ The app is deployed with Heroku at : https://notikea.herokuapp.com/
 - **Catalog page of products with details for each product**
 - **Cart functionality**
 - **Reviews and leave a review functionality**
+- **User Profile where the logged in user can add or change their profile picture, username and phone number.**
+- **Within their user profile, logged in users can check all the orders they have placed.**
 - **The App features admin functionality. An admin can check on all the orders and can add new products.**
 - **The Admin panel is only visible to one user only.**
 - **Mixture of styled components - login/register pages, styling with css and css modules, and React-Bootstrap.**
