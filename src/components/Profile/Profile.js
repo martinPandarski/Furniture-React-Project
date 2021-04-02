@@ -14,8 +14,7 @@ export default function Profile() {
     <Card.Title>Card Title</Card.Title>
     <Card.Subtitle className="mb-2 text-muted">{currentUser.email}</Card.Subtitle>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+      {currentUser.phoneNumber}
     </Card.Text>
     <Link to="/user/edit-profile">Edit your profile</Link>
     <Link to="/user/orders">Check your orders</Link>

@@ -38,7 +38,7 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/reviews" exact component={Reviews}></Route>
         <PrivateRoute path="/user/profile" exact component={Profile}></PrivateRoute>
-        <PrivateRoute path="/user/orders" exact component={Profile}></PrivateRoute>
+        {/* <PrivateRoute path="/user/orders" exact component={Profile}></PrivateRoute> */}
         <PrivateRoute path="/user/edit-profile" exact component={EditProfile}></PrivateRoute>
         <AdminRoute exact path="/admin/create" component={CreateItems}></AdminRoute>
         <AdminRoute path="/admin" component={Admin}></AdminRoute>
