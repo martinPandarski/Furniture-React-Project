@@ -37,6 +37,7 @@ componentDidMount(){
        {Object.keys(this.state.furniture).map(id => 
           <CatalogCards
             key={id}
+            itemId={id}
             product={this.state.furniture[id]}
             />
        )}

@@ -7,7 +7,7 @@ import { formatNumber } from '../../utils/utils';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import {useAuth} from '../../context/auth'
-const Cart = ({history}) => {
+const Cart = () => {
     const {currentUser} = useAuth()
     const { total, cartItems, itemCount, clearCart, checkout,handleCheckout } = useContext(CartContext);
     function handleCheckoutPost(e){

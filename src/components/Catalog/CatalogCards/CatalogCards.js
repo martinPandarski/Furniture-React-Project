@@ -4,7 +4,7 @@ import {formatNumber} from '../../../utils/utils'
 import {Link} from 'react-router-dom'
 // import './CatalogCards.css';
 
-const CatalogCards = ({product}) => {
+const CatalogCards = ({product, itemId}) => {
   
   const { addProduct, cartItems, increase } = useContext(CartContext);
     const isInCart = product => {
@@ -17,7 +17,7 @@ const CatalogCards = ({product}) => {
     <p>{product.name}</p>
     <h3 className="text-left">{formatNumber(product.pricePerOne)}</h3>
     <div className="text-right">
-        <Link  to='/' className="btn btn-link btn-sm mr-2">Details</Link>
+        <Link  to={'/details/' + itemId} className="btn btn-link btn-sm mr-2">Details</Link>
 
         {
             isInCart(product) && 
