@@ -27,7 +27,7 @@ export default function EditProfile() {
         <div>
         <Form>
         <Form.Row>
-          <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Group as={Col} controlId="formGridEmail" disabled>
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder= {currentUser.email ? currentUser.email : ''}  />
           </Form.Group>

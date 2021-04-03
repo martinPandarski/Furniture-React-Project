@@ -17,7 +17,7 @@ import {AuthProvider} from './context/auth';
 import PostReview from "./components/Reviews/postReview/postReview";
 import Details from "./components/Details/Details";
 import Cart from "./components/Cart/Cart";
-import { CartProvider } from "./context/CartContext";
+import CartProvider from './context/CartContext'
 import CreateItems from "./components/Admin/CreateItems/CreateItems";
 import AdminRoute from "./adminRoute";
 import Profile from "./components/Profile/Profile";

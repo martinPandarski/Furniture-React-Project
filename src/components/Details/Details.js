@@ -8,18 +8,23 @@ function Details({
 }) {
     let [furniture, setFurniture] = useState({});
     const { currentUser } = useAuth()
-    const [cart, setCart] = useContext(CartContext);
-    const addToCart = () => {
-      const product = {name : furniture.name, price : furniture.pricePerOne, itemId : match.params.id};
-      setCart(currentCart => [...currentCart, product]);
+  //   const { addProduct, cartItems, increase } = useContext(CartContext);
+  //   // const addToCart = () => {
+  //   //   const product = {name : furniture.name, price : furniture.pricePerOne, itemId : match.params.id};
+  //   //   setCart(currentCart => [...currentCart, product]);
   
-    }
+  //   // }
+  //   const isInCart = product => {
+  //     return !!cartItems.find(item => item.id === match.params.id);
+  // }
+
 
     useEffect(() => {
+      console.log(match.params.id)
       furnitureService.getOne(match.params.id)
           .then(res => setFurniture(res))
     }, [])
-    console.log(furniture)
+    
   return (
     <div className="container">
                     <div className="card-image">
@@ -29,7 +34,19 @@ function Details({
                         <h5 className="item-title">{furniture.name}</h5>  
                         <p className="item-price"><b>${furniture.pricePerOne}</b></p>
                         <p className="item-desc">{furniture.description}</p>
-                        {currentUser ? <button onClick={addToCart} className="btn-add"><b>ADD TO CART</b></button> : ''}
+                        {/* {
+                    isInCart(product) && 
+                    <button 
+                    onClick={() => increase(furniture)}
+                    className="btn-add">Add more</button>
+                }
+
+                {
+                    !isInCart(product) && 
+                    <button 
+                    onClick={() => addProduct(furniture)}
+                    className="btn-add">Add to cart</button>
+                } */}
                     </div>
                 </div>
   );
