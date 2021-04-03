@@ -5,11 +5,24 @@ import CartProducts from './CartProducts/CartProducts';
 import { CartContext } from '../../context/CartContext';
 import { formatNumber } from '../../utils/utils';
 import { Link } from 'react-router-dom';
-
-const Cart = () => {
-
-    const { total, cartItems, itemCount, clearCart, checkout, handleCheckout } = useContext(CartContext);
-    console.log(cartItems)
+import api from '../../services/api';
+import {useAuth} from '../../context/auth'
+const Cart = ({history}) => {
+    const {currentUser} = useAuth()
+    const { total, cartItems, itemCount, clearCart, checkout,handleCheckout } = useContext(CartContext);
+    function handleCheckoutPost(e){
+        const payload = {
+            'total' : total,
+            'itemCount' : itemCount,
+            'email' : currentUser.email
+        }
+            fetch(api.orders, {
+                method: 'POST',
+                headers: {'Content-type':'application/json'},
+                body: JSON.stringify(payload)
+            }).then(handleCheckout)
+            .catch(err => alert(err));
+    }
     return ( 
         // <Layout title="Cart" description="This is the Cart page" >
             <div >
@@ -45,7 +58,7 @@ const Cart = () => {
                                 <h3 className="m-0 txt-right">{formatNumber(total)}</h3>
                                 <hr className="my-4"/>
                                 <div className="text-center">
-                                    <button type="button" className="btn btn-primary mb-2" onClick={handleCheckout}>CHECKOUT</button>
+                                    <button type="button" className="btn btn-primary mb-2" onClick={handleCheckoutPost}>CHECKOUT</button>
                                     <button type="button" className="btn btn-outlineprimary btn-sm" onClick={clearCart}>CLEAR</button>
                                 </div>
 

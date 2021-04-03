@@ -16,22 +16,23 @@ class Admin extends Component {
     componentDidMount(){
       fetch(api.orders)
       .then(res => res.json())
-      .then(orders => this.setState({orders}) )
+      .then(orders => 
+        this.setState({orders}) )
     }
     
  
    
   
     render(){
-
+      
       return (
         <div>
         <Table striped bordered hover>
       <thead>
         <tr>
           <th>Email</th>
-          <th>Order</th>
-          <th>Price</th>
+          <th>Items ordered</th>
+          <th>Total Price</th>
          
         </tr>
       </thead>
@@ -39,9 +40,9 @@ class Admin extends Component {
         {Object.keys(this.state.orders).map(id => 
           <OrderInfo
           key={id}
-          email={this.state.orders[id].name}
-          order={this.state.orders[id].orderCart[0].name}
-          price={this.state.orders[id].orderCart[0].price}
+          email={this.state.orders[id].email}
+          order={this.state.orders[id].itemCount}
+          price={this.state.orders[id].total}
        
           />
         )}
