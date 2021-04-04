@@ -5,7 +5,8 @@ The app is deployed with Heroku at : https://notikea.herokuapp.com/
 ## Features
 - **User Authentication and private routes**
 - **Catalog page of products with details for each product**
-- **Cart functionality**
+- **Cart functionality with options of adding more of the same product or removing it.**
+- **Checkout functionality and the user can check on information about their recent orders in their profile**
 - **Reviews and leave a review functionality**
 - **User Profile where the logged in user can add or change their profile picture, username and phone number.**
 - **Within their user profile, logged in users can check all the orders they have placed.**
