@@ -16,6 +16,9 @@ function Register(){
     async function handleSubmit(e) {
       e.preventDefault()
   
+      if(passwordRef.current.value.length < 6){
+        return setError("The password must be at least 6 symbols.")
+      }
       if (passwordRef.current.value !== passwordConfirmRef.current.value) {
         return setError("Passwords do not match")
       }
