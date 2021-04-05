@@ -2,10 +2,10 @@ import React, {useState, useContext} from 'react';
 import {CartContext} from '../../../context/CartContext';
 import {formatNumber} from '../../../utils/utils'
 import {Link} from 'react-router-dom'
-// import './CatalogCards.css';
+import {useAuth} from '../../../context/auth'
 
 const CatalogCards = ({product, itemId}) => {
-  
+  const {currentUser} = useAuth();
   const { addProduct, cartItems, increase } = useContext(CartContext);
     const isInCart = product => {
         return !!cartItems.find(item => item.objectId === product.objectId);
@@ -19,18 +19,20 @@ const CatalogCards = ({product, itemId}) => {
     <div className="text-right">
         <Link  to={'/details/' + itemId} className="btn btn-link btn-sm mr-2">Details</Link>
 
-        {
+        {   currentUser ? 
             isInCart(product) && 
             <button 
             onClick={() => increase(product)}
             className="btn btn-outline-primary btn-sm">Add more</button>
+            : ''
         }
 
-        {
+        {   currentUser ? 
             !isInCart(product) && 
             <button 
             onClick={() => addProduct(product)}
             className="btn btn-primary btn-sm">Add to cart</button>
+            : ''
         }
         
     </div>

@@ -34,12 +34,12 @@ const Login = () => {
         <Input
           type="emailAddress"
           ref={emailRef}
-          placeholder="email"
+          placeholder="Email"
         />
         <Input
           type="password"
           ref={passwordRef}
-          placeholder="password"
+          placeholder="Password"
         />
         <Button disabled={loading} onClick={handleSubmit}>Sign In</Button>
       </Form>

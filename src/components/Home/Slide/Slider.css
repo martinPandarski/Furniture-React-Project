@@ -11,10 +11,12 @@
   background-size: cover;
   
 }
+
 .image-container img{
   margin: auto;
   width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 .slider-paragraph{

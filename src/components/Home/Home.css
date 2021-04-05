@@ -30,6 +30,9 @@
     margin-left: 15px;
     border: 1px solid lightgrey;
 }
+.card-img, .card-img-bottom, .card-img-top{
+    height: 70%;
+}
 .gallery-footer{
     margin: 28px;
 }
