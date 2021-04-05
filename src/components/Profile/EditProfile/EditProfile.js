@@ -1,9 +1,7 @@
 import React, {useRef} from 'react'
-import {useFormik, Formik} from 'formik';
 import {Form, Col, InputGroup, Button} from 'react-bootstrap';
 import {useAuth} from '../../../context/auth'
 import {auth} from '../../../firebase';
-import * as yup from 'yup';
 
 export default function EditProfile() {
    
@@ -29,7 +27,7 @@ export default function EditProfile() {
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail" disabled>
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder= {currentUser.email ? currentUser.email : ''}  />
+            <Form.Control type="email" disabled placeholder= {currentUser.email ? currentUser.email : ''}  />
           </Form.Group>
       
           <Form.Group as={Col} controlId="formGridUsername">
