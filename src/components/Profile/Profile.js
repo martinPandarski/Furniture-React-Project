@@ -11,7 +11,7 @@ export default function Profile() {
             <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={currentUser.photoURL} />
   <Card.Body>
-    <Card.Title>Card Title</Card.Title>
+    <Card.Title>{currentUser.name}</Card.Title>
     <Card.Subtitle className="mb-2 text-muted">{currentUser.email}</Card.Subtitle>
     <Card.Text>
       {currentUser.phoneNumber}
