@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {Form, Col, InputGroup, Button} from 'react-bootstrap';
+import {Form, Col,  Button} from 'react-bootstrap';
 import {useAuth} from '../../../context/auth'
 import {auth} from '../../../firebase';
 

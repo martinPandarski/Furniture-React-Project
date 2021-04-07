@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import {Card, Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import {useAuth} from '../../context/auth'
 import './Profile.css'
 export default function Profile() {

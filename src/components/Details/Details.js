@@ -1,15 +1,14 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import * as furnitureService from '../../services/furnitureService';
 import './Details.css'
-import {useAuth} from '../../context/auth'
+
 
 function Details({
   match
 }) {
     let [furniture, setFurniture] = useState({});
-    const { currentUser } = useAuth()
+   
     useEffect(() => {
-      console.log(match.params.id)
       furnitureService.getOne(match.params.id)
           .then(res => setFurniture(res))
     }, [])

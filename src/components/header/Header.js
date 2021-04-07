@@ -2,14 +2,14 @@ import React, {useState, useContext} from 'react'
 import style from "./Header.module.css";
 import {Link, useHistory} from 'react-router-dom'
 import {useAuth} from '../../context/auth'
-import {CartContext} from '../../context/CartContext'
+import {CartContext} from '../../context/CartContext';
+import {Alert} from 'react-bootstrap'
 
 
 function Header() {
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const history = useHistory()
-  console.log(currentUser)
   async function handleLogout() {
     setError("")
     try {
@@ -26,7 +26,7 @@ function Header() {
     <div>
     <header className={style.header}>
      <h2 className={style.headerH1}><Link to="/">Not Ikea</Link> </h2>
-     {/* {error && <Alert variant="danger">{error}</Alert>} */}
+     {error && <Alert variant="danger">{error}</Alert>}
       <nav className={style.navigation}>
         <p className={style.navP}>For more information contact us at: something@gmail.com</p>
         <ul className={style.ulNavigation}>
