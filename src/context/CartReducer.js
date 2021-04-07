@@ -17,10 +17,7 @@ export const CartReducer = (state, action) => {
                 state.cartItems.push({
                     ...action.payload,
                     quantity: 1
-                })
-                
-
-                
+                }) 
             } 
 
             return {
@@ -43,10 +40,6 @@ export const CartReducer = (state, action) => {
             };
             updatedItem.quantity++;
             updatedCart[updatedItemIndex] = updatedItem;
-
-        //    state.cartItems[state.cartItems.findIndex(item => item.objectId === action.payload.objectId)].quantity++
-        
-            // console.log(state.cartItems[state.cartItems.findIndex(item => item.objectId === action.payload.objectId)].quantity)
             return {
                 ...state,
                 ...sumItems(updatedCart),

@@ -44,7 +44,7 @@ const Login = () => {
         <Button disabled={loading} onClick={handleSubmit}>Sign In</Button>
       </Form>
       <Link to="/register">Don't have an account?</Link>
-        { error &&<Error>The username or password provided were incorrect!</Error> }
+        { error &&<Error>The email or password provided were incorrect!</Error> }
     </Card>
     )
 }
