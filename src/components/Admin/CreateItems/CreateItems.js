@@ -1,38 +1,89 @@
-import React from 'react';
-import {Form, Button} from 'react-bootstrap'
+import React,{useState} from 'react';
+import api from '../../../services/api';
+import { Card, Form, Input, Button, Error } from "../../AuthForms/AuthForms";
 
-export default function CreateItems() {
+export default function CreateItems({history}) {
+    const [isError, setIsError] = useState(false);
+      const [furnitureName, setFurnitureName] = useState("")
+      const [introText, setIntroText] = useState("");
+      const [description, setDescription] = useState("");
+      const [pictureLink, setPictureLink] = useState("");
+      const [pricePerOne, setPricePerOne] = useState("");
+
+    function postFurniture(){
+        const payload={
+            "name":furnitureName,
+            "introText":introText,
+            "description": description,
+            "pictureLink" : pictureLink,
+            "pricePerOne" : pricePerOne
+        }
+        
+          fetch(api.furniture + '.json',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)   
+        })
+        .then(res => history.push('/catalog'))
+        .catch(err => {
+          setIsError(true)
+            
+        })
+       
+        
+    }
     return (
-        <div>
-            <Form>
-        <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter name" />
-        <Form.Text className="text-muted">
-                    Think of an interesting name.
-        </Form.Text>
-        </Form.Group>
-
-    <Form.Group controlId="pictureLink">
-    <Form.Label>Add a picture</Form.Label>
-    <Form.Control type="text"/>
-     </Form.Group>
-     <Form.Group controlId="formTextArea">
-    <Form.Label>Add an intro text here</Form.Label>
-    <Form.Control as="textarea" rows={2}/>
-    </Form.Group>
-    <Form.Group controlId="formTextArea">
-    <Form.Label>Add description here</Form.Label>
-    <Form.Control as="textarea" rows={4}/>
-    </Form.Group>
-    <Form.Group controlId="formPrice">
-    <Form.Label>Add a price</Form.Label>
-    <Form.Control as="text"/>
-    </Form.Group>
-    <Button variant="primary" type="submit">
-    Submit
-    </Button>
+        <Card>
+        <h2>Add a new product.</h2>
+        <Form>
+          <Input
+            type="text"
+            value={furnitureName}
+            onChange={e => {
+                setFurnitureName(e.target.value);
+            }}
+            placeholder="Enter the name of the product."
+          />
+          <Input
+            type="text"
+            value={introText}
+            onChange={e => {
+              setIntroText(e.target.value);
+            }}
+            placeholder="Enter a short description of the product."
+          />
+          <Input
+            type="textarea"
+            value={description}
+            onChange={e => {
+              setDescription(e.target.value);
+            }}
+            placeholder="Enter the full description of the item."
+          />
+           <Input
+            type="textarea"
+            value={pictureLink}
+            onChange={e => {
+              setPictureLink(e.target.value);
+            }}
+            placeholder="Add a product picture."
+          />
+          <Input
+            type="textarea"
+            value={pricePerOne}
+            onChange={e => {
+              setPricePerOne(e.target.value);
+            }}
+            placeholder="Add a product price."
+          />
+          <Button onClick={postFurniture}>Post the review!</Button>
         </Form>
-        </div>
+          { isError &&<Error>Please fill out all the necessary fields.</Error> }
+          
+  
+      </Card>
     )
 }
+

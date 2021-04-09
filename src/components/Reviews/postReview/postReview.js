@@ -8,7 +8,8 @@ const PostReview = ({history}) => {
       const [personName, setPersonName] = useState("")
       const [job, setJob] = useState("");
       const [reviewText, setReviewText] = useState("");
-      const {currentUser} = useAuth()
+      const {currentUser} = useAuth();
+      
       function postReviews(){
         const userToken = localStorage.getItem("tokens")
         const payload={

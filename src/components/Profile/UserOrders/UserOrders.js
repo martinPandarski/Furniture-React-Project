@@ -14,14 +14,16 @@ export default function UserOrders() {
         .catch(err => alert(err))
         
       }, [])
-
+      console.log(orders)
     return (
         <div>
             <Table striped bordered hover>
   <thead>
     <tr>
-      <th>#</th>
-      <th>First Name</th>
+      <th>Email Address</th>
+      <th>Items Bought</th>
+      <th>Total Price</th>
+
     </tr>
   </thead>
   <tbody>
